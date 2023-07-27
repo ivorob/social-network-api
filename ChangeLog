@@ -1,0 +1,18 @@
+CHANGES
+=======
+
+* Add .gitignore file
+* Update workflow name
+* Update README.md
+* Remove generating tests report
+* Revert upload tests artifacts to github workflow
+* Generate test report instead of simple upload tests artifacts
+* Fix flake8 issues
+* Add 1 test to tests.py to pass github workflow
+* Rename test.py to tests.py
+* Fix workflow start event
+* Update name of github workflow
+* Add README.md
+* Add initial python file
+* Add github workflow for project
+* Initial commit
