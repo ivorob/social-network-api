@@ -1,4 +1,4 @@
-name: Python App
+name: Simple social network api
 
 on: [push]
 
