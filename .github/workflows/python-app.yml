@@ -9,7 +9,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.9", "3.10", "3.11"]
+        python-version: ["3.9"]
 
     steps:
       - uses: actions/checkout@v3
@@ -17,6 +17,7 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
+      - run: git fetch --prune --unshallow
 
       # Install pip, flake8, pytest
       - name: Install dependencies
@@ -48,6 +49,7 @@ jobs:
       # Build wheel package (PEP 427)
       - name: Build wheel package
         run: |
+          SETUPTOOLS_SCM_DEBUG=1 python setup.py --version
           echo "PACKAGE_VERSION=$(python setup.py --version)" >> $GITHUB_ENV
           python setup.py bdist_wheel
 
