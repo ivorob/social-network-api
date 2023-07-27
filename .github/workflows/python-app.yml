@@ -1,4 +1,4 @@
-name: Simple social network api
+name: build
 
 on: [push]
 
