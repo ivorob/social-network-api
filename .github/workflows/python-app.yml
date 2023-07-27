@@ -36,11 +36,12 @@ jobs:
         run: |
           pytest tests.py --doctest-modules --junitxml=junit/test-results-${{ matrix.python-version }}.xml
 
-      # Upload tests artifacts
-      - name: Upload pytest test results
-        uses: actions/upload-artifact@v3
+      # Generates tests reports
+      - name: Test Report
+        uses: dorny/test-reporter@v1
         with:
-          name: pytest-results-${{ matrix.python-version }}
+          name: Tests report for ${{ matrix.python-version }}
           path: junit/test-results-${{ matrix.python-version }}.xml
+          reporter: jest-junit
         # Use always() to always run this step to publish test results when there are test failures
         if: ${{ always() }}
